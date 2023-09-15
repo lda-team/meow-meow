@@ -1,5 +1,13 @@
 name: SonarCloud
 
+on:
+  workflow_call:
+    inputs:
+      gradle-command:
+        required: false
+        type: 'string'
+        default: 'build sonar --info'
+
 jobs:
   build:
     name: Build and analyze
@@ -34,4 +42,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: ./gradlew build sonar --info
+        run: ./gradlew ${{ inputs.gradle-command }}
