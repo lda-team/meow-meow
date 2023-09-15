@@ -1,0 +1,9 @@
+name: Main Workflow
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  RunSonar:
+    uses: 'lda-team/meow-meow/.github/workflows/sonar.yml@main'
