@@ -2,7 +2,11 @@ name: Main Workflow
 
 on:
   push:
-  workflow_dispatch:
+    branches:
+      - main
+    paths:
+      - 'src/**/*'
+      - '.github/**/*'
 
 jobs:
   RunSonar:
